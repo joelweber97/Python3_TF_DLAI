@@ -1,3 +1,4 @@
+import numpy as np
 import tensorflow as tf
 
 
@@ -6,6 +7,8 @@ import tensorflow as tf
 
 #normalize data
 train_images = train_images/255.
+train_images = np.expand_dims(train_images, axis = -1)
+print(train_images.shape)
 test_images = test_images/255.
 
 
@@ -31,5 +34,3 @@ model.fit(train_images, train_labels, epochs = 5)
 
 
 model.evaluate(test_images, test_labels)
-
-
